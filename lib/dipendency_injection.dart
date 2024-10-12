@@ -7,7 +7,7 @@ import 'package:image_processing_ai_tool/data/datasource_services/image_saving_s
 import 'package:image_processing_ai_tool/data/datasource_services/upscale_service.dart';
 import 'package:image_processing_ai_tool/data/datasources/local/image_saver_datasource.dart';
 import 'package:image_processing_ai_tool/data/datasources/local/login_local_datasource.dart';
-import 'package:image_processing_ai_tool/data/datasources/local/remote/BgRemover.dart'; // safdsdfgdg
+import 'package:image_processing_ai_tool/data/datasources/local/remote/bgRemover.dart'; // safdsdfgdg
 import 'package:image_processing_ai_tool/data/datasources/local/remote/conectivity_checker_datasource.dart';
 import 'package:image_processing_ai_tool/data/datasources/local/remote/key_validation_check_datasource.dart';
 import 'package:image_processing_ai_tool/data/datasources/local/remote/upscaler_datasource.dart';

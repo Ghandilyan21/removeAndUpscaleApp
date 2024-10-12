@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_processing_ai_tool/presentation/state/image_processing_bloc.dart';
 import 'package:image_processing_ai_tool/presentation/state/image_processing_event.dart';
 import 'package:image_processing_ai_tool/presentation/state/image_processing_state.dart';
+import 'package:image_processing_ai_tool/presentation/state/image_view_model.dart';
 import 'package:image_processing_ai_tool/presentation/widgets/image_showing_canvas.dart';
 import 'package:image_processing_ai_tool/presentation/widgets/processing_buttons.dart';
 import 'package:image_processing_ai_tool/presentation/widgets/remove_bg_screen_widgets/remove_bg_guide.dart';
 import 'package:image_processing_ai_tool/presentation/widgets/remove_bg_screen_widgets/remove_bg_header.dart';
+import 'package:image_processing_ai_tool/presentation/widgets/remove_bg_screen_widgets/remove_bg_settings.dart';
 
 class RemoveBgScreen extends StatelessWidget {
   const RemoveBgScreen({super.key});
@@ -55,8 +57,7 @@ class RemoveBgScreen extends StatelessWidget {
                             )),
                       );
                     });
-                  }
-                  else if (state is UpscaledSaved) {
+                  } else if (state is UpscaledSaved) {
                     WidgetsBinding.instance.addPostFrameCallback((_) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
@@ -102,14 +103,37 @@ class RemoveBgScreen extends StatelessWidget {
                         const SizedBox(
                           height: 25,
                         ),
+                        //settings
+                        IconButton(
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    content: const RemoveBgSettings(),
+                                  );
+                                },
+                              );
+                            },
+                            icon: const Icon(Icons.settings)),
                         ProcessingButtons(
                           firstText: 'Remove BG',
                           secondText: 'Save',
                           processImage: (state.imageBytes != null)
                               ? () {
+                                  final currentSettings = context
+                                      .read<ImageProcessingBloc>()
+                                      .currentSettings;
+                                  print("Esia $currentSettings");
                                   BlocProvider.of<ImageProcessingBloc>(context)
-                                      .add(RemoveBgEvent(
-                                          imageBytes: state.imageBytes!));
+                                      .add(
+                                    RemoveBgEvent(
+                                      viewModel: ImageViewModel(
+                                        imageBytes: state.imageBytes,
+                                      ),
+                                      bgSettingsModel: currentSettings,
+                                    ),
+                                  );
                                 }
                               : null,
                           saveImage: null,

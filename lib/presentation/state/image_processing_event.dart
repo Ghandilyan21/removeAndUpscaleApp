@@ -1,8 +1,15 @@
 import 'dart:typed_data';
 
+import 'package:equatable/equatable.dart';
+import 'package:image_processing_ai_tool/presentation/state/bg_settings_model.dart';
 import 'package:image_processing_ai_tool/presentation/state/image_view_model.dart';
 
-class ImageProcessingEvent {}
+abstract class ImageProcessingEvent extends Equatable {
+  const ImageProcessingEvent();
+
+  @override
+  List<Object?> get props => [];
+}
 
 // events for background remover
 class PickRemoveBgImage extends ImageProcessingEvent {}
@@ -12,32 +19,44 @@ class PickUpsclaeImage extends ImageProcessingEvent {}
 class ChoseUpscaleSize extends ImageProcessingEvent {
   final String? size;
 
-  ChoseUpscaleSize({required this.size});
+  const ChoseUpscaleSize({required this.size});
 }
 
 class RemoveBgEvent extends ImageProcessingEvent {
-  final Uint8List imageBytes;
+  final ImageViewModel viewModel;
+  final BgSettingsModel bgSettingsModel;
 
-  RemoveBgEvent({required this.imageBytes});
+  const RemoveBgEvent({
+    required this.viewModel,
+    required this.bgSettingsModel,
+  });
 }
 
 class SaveBgRemovedImage extends ImageProcessingEvent {
   final Uint8List? imageBytes;
 
-  SaveBgRemovedImage({required this.imageBytes});
+  const SaveBgRemovedImage({required this.imageBytes});
 }
 
-
-class UpscaleImageEvent extends ImageProcessingEvent{
+class UpscaleImageEvent extends ImageProcessingEvent {
   final ImageViewModel imageBytes;
   final String size;
 
-  UpscaleImageEvent({required this.imageBytes, required this.size});
+  const UpscaleImageEvent({required this.imageBytes, required this.size});
 }
 
 class SaveUpscaledImage extends ImageProcessingEvent {
   final String size;
   final Uint8List? imageBytes;
 
-  SaveUpscaledImage({required this.imageBytes, required this.size});
+  const SaveUpscaledImage({required this.imageBytes, required this.size});
+}
+
+class UpdateBgSettings extends ImageProcessingEvent {
+  final BgSettingsModel settings;
+
+  const UpdateBgSettings(this.settings);
+
+  @override
+  List<Object?> get props => [settings];
 }

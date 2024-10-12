@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_processing_ai_tool/presentation/pages/home_screen/home_screen.dart';
+import 'package:image_processing_ai_tool/presentation/pages/home_screen/login_screen/loged_check_screen.dart';
 import 'package:image_processing_ai_tool/presentation/pages/home_screen/login_screen/login_screen.dart';
 import 'package:image_processing_ai_tool/presentation/state/network_checking_bloc.dart';
 import 'package:image_processing_ai_tool/presentation/state/network_checking_event.dart';
@@ -21,8 +21,8 @@ class ConenctivityHandler extends StatelessWidget {
         );
       } else if (state is ConnectivityConnected) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const LoginPage()));
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const LogedCheckScreen()));
         });
       } else if (state is ConnectivityDisconnected) {
         return Scaffold(

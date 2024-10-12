@@ -6,12 +6,13 @@ import 'package:image_processing_ai_tool/core/error/image_downloading_error.dart
 import 'package:image_processing_ai_tool/core/error/network_error.dart';
 import 'package:image_processing_ai_tool/core/failur/failurs.dart';
 import 'package:image_processing_ai_tool/data/datasources/local/image_saver_datasource.dart';
-import 'package:image_processing_ai_tool/data/datasources/local/remote/BgRemover.dart';
+import 'package:image_processing_ai_tool/data/datasources/local/remote/bgRemover.dart';
 import 'package:image_processing_ai_tool/data/datasources/local/remote/upscaler_datasource.dart';
 import 'package:image_processing_ai_tool/data/datasources/local/remove_bg_image_picker.dart';
 import 'package:image_processing_ai_tool/data/datasources/local/upscale_image_picker.dart';
 import 'package:image_processing_ai_tool/domain/entities/image_entity.dart';
 import 'package:image_processing_ai_tool/domain/repositories/image_processing_repo.dart';
+import 'package:image_processing_ai_tool/presentation/state/bg_settings_model.dart';
 import 'package:image_processing_ai_tool/presentation/state/image_view_model.dart';
 
 class ImageProcessingRepoImpl implements ImageProcessingRepo {
@@ -48,9 +49,9 @@ class ImageProcessingRepoImpl implements ImageProcessingRepo {
   }
 
   @override
-  Future<Either<Failur, ImageEntity>> removeBg(Uint8List image) async {
+  Future<Either<Failur, ImageEntity>> removeBg(ImageViewModel imageViewModel, BgSettingsModel settings) async {
     try {
-      final result = await bgremover.removeBg(image);
+      final result = await bgremover.removeBg(imageViewModel, settings);
       return Right(ImageEntity.fromDTO(result));
     } on NetworkError catch (e) {
       return Left(NetworkFailure(message: e.toString()));

@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
-          if (state is NotValidApiState) {
+          if (state is NotValidApiState) { 
             showDialog(
               context: context,
               builder: (context) {
@@ -66,6 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           onPressed: () {
                             Navigator.of(context).pop();
+                            Navigator.of(context).pop();
                           },
                         ),
                       ],
@@ -74,8 +75,19 @@ class _LoginPageState extends State<LoginPage> {
                 );
               },
             );
+          } else if (state is IsValidApiStateChecking) {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    content: SizedBox(
+                        height: MediaQuery.of(context).size.width,
+                        width: MediaQuery.of(context).size.width,
+                        child: CircularProgressIndicator()),
+                  );
+                });
           } else if (state is IsValidApiState || state is LogedState) {
-            Navigator.push(context,
+            Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const HomeScreen()));
           }
         },
@@ -174,7 +186,7 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 25),
                     TextButton(
                       onPressed: () {
-                        final String termKey = _apiController.text.trim();
+                        final String termKey = _apiController.text;
                         final String key = termKey.replaceAll(' ', '');
                         BlocProvider.of<AuthBloc>(context)
                             .add(IsValidAPI(key: key));

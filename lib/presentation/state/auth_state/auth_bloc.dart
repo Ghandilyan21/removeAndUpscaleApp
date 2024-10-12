@@ -24,6 +24,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
 
     on<IsValidAPI>((event, emit) async {
+      emit(IsValidApiStateChecking());
       bool response = await isValidApiUsecase(event.key);  
       if (response) {
         saveApiKeyUsecase(event.key);

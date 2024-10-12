@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ImageShowingCanvas extends StatelessWidget {
-  Image image;
-  ImageShowingCanvas({super.key, required this.image});
+  final Image image;
+  const ImageShowingCanvas({super.key, required this.image});
 
   @override
   Widget build(BuildContext context) {

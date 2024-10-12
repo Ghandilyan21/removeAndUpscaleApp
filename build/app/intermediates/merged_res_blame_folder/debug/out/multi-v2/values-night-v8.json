@@ -4,7 +4,7 @@
             "outputFile": "com.example.image_processing_ai_tool.app-mergeDebugResources-28:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/home/artyom/Desktop/ImageProcessing-AI-tool/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/home/artyom/Desktop/removeAndUpscaleApp/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

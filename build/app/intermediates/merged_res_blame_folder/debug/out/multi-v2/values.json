@@ -23,6 +23,25 @@
                     }
                 },
                 {
+                    "source": "/home/artyom/Desktop/removeAndUpscaleApp/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,818",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "476,982"
+                    },
+                    "to": {
+                        "startLines": "165,169",
+                        "startColumns": "4,4",
+                        "startOffsets": "8569,8750",
+                        "endLines": "168,171",
+                        "endColumns": "12,12",
+                        "endOffsets": "8745,8914"
+                    }
+                },
+                {
                     "source": "/home/artyom/.gradle/caches/transforms-3/4ee1d1c3643bd699aea17aa2adbcb7ee/transformed/jetified-startup-runtime-1.1.1/res/values/values.xml",
                     "from": {
                         "startLines": "2",
@@ -126,25 +145,6 @@
                         "startOffsets": "6314,7323",
                         "endColumns": "41,59",
                         "endOffsets": "6351,7378"
-                    }
-                },
-                {
-                    "source": "/home/artyom/Desktop/ImageProcessing-AI-tool/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,818",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "476,982"
-                    },
-                    "to": {
-                        "startLines": "165,169",
-                        "startColumns": "4,4",
-                        "startOffsets": "8569,8750",
-                        "endLines": "168,171",
-                        "endColumns": "12,12",
-                        "endOffsets": "8745,8914"
                     }
                 },
                 {
