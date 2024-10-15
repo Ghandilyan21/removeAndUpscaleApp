@@ -6,14 +6,15 @@ import 'package:image_processing_ai_tool/presentation/state/image_view_model.dar
 
 class ImageEntity extends Equatable {
   final Uint8List? imageBytes;
+  String? limit;
 
-  const ImageEntity({required this.imageBytes});
+  ImageEntity({required this.imageBytes, this.limit});
 
   @override
   List<Object?> get props => [imageBytes];
 
   factory ImageEntity.fromDTO(ImageDTO imagedto) {
-    return ImageEntity(imageBytes: imagedto.imageBytes);
+    return ImageEntity(imageBytes: imagedto.imageBytes, limit: imagedto.limit);
   }
 
   ImageDTO toDTO() {
@@ -21,6 +22,6 @@ class ImageEntity extends Equatable {
   }
 
   ImageViewModel toViewModel() {
-    return ImageViewModel(imageBytes: imageBytes);
+    return ImageViewModel(imageBytes: imageBytes, limit: limit);
   }
 }

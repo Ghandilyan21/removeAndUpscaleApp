@@ -52,7 +52,7 @@ class ImageProcessingBloc
       final response = await removeBgUsecase(event.viewModel, event.bgSettingsModel);
       response.fold(
           (failure) => emit(RemoveBgLFailure(message: failure.message)),
-          (image) => emit(RemoveBgLoaded(imageBytes: image.imageBytes)));
+          (image) => emit(RemoveBgLoaded(imageBytes: image.imageBytes, limit: image.limit)));
     });
 
     on<SaveBgRemovedImage>((event, emit) async {
@@ -71,7 +71,7 @@ class ImageProcessingBloc
       response.fold(
           (failure) => emit(UpscaleFailure(message: failure.message)),
           (image) =>
-              emit(UpscaleLoaded(imageBytes: image, upscaledSize: event.size)));
+              emit(UpscaleLoaded(imageBytes: image, upscaledSize: event.size, limit: image.limit)));
     });
 
     on<SaveUpscaledImage>((event, emit) async {

@@ -1,4 +1,4 @@
-#Sat Oct 12 15:32:18 AMT 2024
+#Tue Oct 15 17:37:37 AMT 2024
 base.0=/home/artyom/Desktop/removeAndUpscaleApp/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/home/artyom/Desktop/removeAndUpscaleApp/build/app/intermediates/dex/debug/mergeLibDexDebug/0/classes.dex
 base.2=/home/artyom/Desktop/removeAndUpscaleApp/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex

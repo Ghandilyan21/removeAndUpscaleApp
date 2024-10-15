@@ -55,8 +55,9 @@ class RemoveBgLoading extends ImageProcessingState {}
 
 class RemoveBgLoaded extends ImageProcessingState {
   final Uint8List? imageBytes;
+  String? limit;
 
-  const RemoveBgLoaded({required this.imageBytes});
+  RemoveBgLoaded({required this.imageBytes, this.limit});
 }
 
 class RemoveBgLFailure extends ImageProcessingState {
@@ -89,8 +90,9 @@ class UpscaleLoading extends ImageProcessingState {}
 class UpscaleLoaded extends ImageProcessingState {
   final ImageViewModel? imageBytes;
   final String upscaledSize;
+  final String? limit;
 
-  const UpscaleLoaded({required this.imageBytes, required this.upscaledSize});
+  const UpscaleLoaded({required this.imageBytes, required this.upscaledSize, this.limit});
 }
 
 class UpscaleFailure extends ImageProcessingState {

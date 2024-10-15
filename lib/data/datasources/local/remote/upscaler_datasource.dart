@@ -27,7 +27,7 @@ class UpscalerDatasource {
       String url = jsonResponse['data']['url'];
       final downloadResponse = await imageDownloader.downloadImage(url);
       if (downloadResponse.statusCode == 200) {
-        return ImageDTO(imageBytes: downloadResponse.bodyBytes);
+        return ImageDTO(imageBytes: downloadResponse.bodyBytes, limit: response.headers['x-picsart-credit-available']);
       } else {
         throw ImageDownloadingError(
             message: "Failed to download image. Please try again later.");

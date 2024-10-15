@@ -12,49 +12,52 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> pages = [const RemoveBgScreen(), UpscaleScreen()];
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-              onPressed: () async {
-                SharedPreferences prefs = await SharedPreferences.getInstance();
-                prefs.remove('apiKey');
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const LogedCheckScreen(),
-                  ),
-                );
-                // Navigator.of(context).pop();
-              },
-              icon: const Icon(Icons.logout))
-        ],
-        title: Text(
-          "Picsart AI tools",
-          style: TextStyle(color: textColor),
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          actions: [
+            IconButton(
+                onPressed: () async {
+                  SharedPreferences prefs = await SharedPreferences.getInstance();
+                  prefs.remove('apiKey');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LogedCheckScreen(),
+                    ),
+                  );
+                  // Navigator.of(context).pop();
+                },
+                icon: const Icon(Icons.logout))
+          ],
+          title: Text(
+            "Picsart AI tools",
+            style: TextStyle(color: textColor),
+          ),
+          centerTitle: true,
         ),
-        centerTitle: true,
-      ),
-      body: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: DefaultTabController(
-          length: 2,
-          child: Column(
-            children: [
-              const TabBar(
-                tabs: [
-                  Tab(
-                    text: "Remove BG",
-                  ),
-                  Tab(
-                    text: "Upscale",
-                  ),
-                ],
-              ),
-              Expanded(child: TabBarView(children: pages)),
-            ],
+        body: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: DefaultTabController(
+            length: 2,
+            child: Column(
+              children: [
+                const TabBar(
+                  tabs: [
+                    Tab(
+                      text: "Remove BG",
+                    ),
+                    Tab(
+                      text: "Upscale",
+                    ),
+                  ],
+                ),
+                Expanded(child: TabBarView(children: pages)),
+              ],
+            ),
           ),
         ),
       ),

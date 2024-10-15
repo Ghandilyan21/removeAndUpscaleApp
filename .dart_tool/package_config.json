@@ -3,9 +3,9 @@
   "packages": [
     {
       "name": "args",
-      "rootUri": "file:///home/artyom/.pub-cache/hosted/pub.dev/args-2.5.0",
+      "rootUri": "file:///home/artyom/.pub-cache/hosted/pub.dev/args-2.6.0",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.3"
     },
     {
       "name": "async",
@@ -60,12 +60,6 @@
       "rootUri": "file:///home/artyom/.pub-cache/hosted/pub.dev/cross_file-0.3.4+2",
       "packageUri": "lib/",
       "languageVersion": "3.3"
-    },
-    {
-      "name": "cupertino_icons",
-      "rootUri": "file:///home/artyom/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.8",
-      "packageUri": "lib/",
-      "languageVersion": "3.1"
     },
     {
       "name": "dartz",
@@ -144,12 +138,6 @@
       "rootUri": "file:///home/artyom/.pub-cache/hosted/pub.dev/flutter_bloc-8.1.6",
       "packageUri": "lib/",
       "languageVersion": "2.12"
-    },
-    {
-      "name": "flutter_colorpicker",
-      "rootUri": "file:///home/artyom/.pub-cache/hosted/pub.dev/flutter_colorpicker-1.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
     },
     {
       "name": "flutter_lints",
@@ -501,13 +489,13 @@
     },
     {
       "name": "url_launcher",
-      "rootUri": "file:///home/artyom/.pub-cache/hosted/pub.dev/url_launcher-6.3.0",
+      "rootUri": "file:///home/artyom/.pub-cache/hosted/pub.dev/url_launcher-6.3.1",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "3.3"
     },
     {
       "name": "url_launcher_android",
-      "rootUri": "file:///home/artyom/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.10",
+      "rootUri": "file:///home/artyom/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.12",
       "packageUri": "lib/",
       "languageVersion": "3.5"
     },
@@ -584,7 +572,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-10-09T12:00:55.823963Z",
+  "generated": "2024-10-15T13:41:48.969738Z",
   "generator": "pub",
   "generatorVersion": "3.5.0",
   "flutterRoot": "file:///usr/bin/flutter",

@@ -75,6 +75,10 @@ class RemoveBgScreen extends StatelessWidget {
                         SnackBar(content: Text(state.message)),
                       );
                     });
+                  } else if (state is RemoveBgLoaded) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('You can process ${(state.limit??"null")} images')),
+                    );
                   }
                 },
                 builder: (context, state) {

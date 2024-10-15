@@ -72,6 +72,11 @@ class UpscaleScreen extends StatelessWidget {
                       );
                     });
                   }
+                  else if (state is UpscaleLoaded) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('You can process ${(state.limit??"null")} images')),
+                    );
+                  }
                 },
                 builder: (context, state) {
                   if (state is UpscaleImagePicking) {

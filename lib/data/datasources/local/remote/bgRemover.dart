@@ -15,29 +15,32 @@ class Bgremover {
   final ImageDownloader imageDownloader;
   Bgremover({required this.imageDownloader, required this.bgRemoveService});
 
-  Future<ImageDTO> removeBg(ImageViewModel imageViewModel, BgSettingsModel settings) async {
+  Future<ImageDTO> removeBg(
+      ImageViewModel imageViewModel, BgSettingsModel settings) async {
     if (!(await CheckConnectivityService().isConected)) {
       throw NetworkError(
           message:
               "No internet connection. Please check your network settings.");
     }
-      final response = await bgRemoveService.removeBg(imageViewModel, settings);
-      print(response.statusCode);
-      print(response.body);
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> jsonResponse = jsonDecode(response.body);
-        String url = jsonResponse['data']['url'];
-          final downloadResponse = await imageDownloader.downloadImage(url);
-          if (downloadResponse.statusCode == 200) {
-            return ImageDTO(imageBytes: downloadResponse.bodyBytes);
-          } else {
-            throw ImageDownloadingError(
-                message: "Failed to download image. Please try again later.");
-          }
-      } else if (response.statusCode == 402) {
-        throw ApiPaymentLimitError(
-            message: jsonDecode(response.body)['message']);
+    final response = await bgRemoveService.removeBg(imageViewModel, settings);
+    print(response.statusCode);
+    // print(response.body);
+    print("headers: ${response.headers}");
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+      String url = jsonResponse['data']['url'];
+      final downloadResponse = await imageDownloader.downloadImage(url);
+      if (downloadResponse.statusCode == 200) {
+        return ImageDTO(
+            imageBytes: downloadResponse.bodyBytes,
+            limit: response.headers['x-picsart-credit-available']);
+      } else {
+        throw ImageDownloadingError(
+            message: "Failed to download image. Please try again later.");
       }
-      throw ServerError(message: "Server Error");
+    } else if (response.statusCode == 402) {
+      throw ApiPaymentLimitError(message: jsonDecode(response.body)['message']);
+    }
+    throw ServerError(message: "Server Error");
   }
 }
