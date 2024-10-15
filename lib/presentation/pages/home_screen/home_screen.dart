@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_processing_ai_tool/core/utils/app_color.dart';
 import 'package:image_processing_ai_tool/presentation/pages/home_screen/login_screen/loged_check_screen.dart';
-import 'package:image_processing_ai_tool/presentation/pages/home_screen/login_screen/login_screen.dart';
 import 'package:image_processing_ai_tool/presentation/pages/home_screen/remove_bg_screen.dart';
 import 'package:image_processing_ai_tool/presentation/pages/home_screen/upscale_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';

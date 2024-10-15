@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_processing_ai_tool/dipendency_injection.dart';
-import 'package:image_processing_ai_tool/presentation/pages/home_screen/home_screen.dart';
 import 'package:image_processing_ai_tool/presentation/state/auth_state/auth_bloc.dart';
-import 'package:image_processing_ai_tool/presentation/state/auth_state/login_page_events.dart';
 import 'package:image_processing_ai_tool/presentation/state/image_processing_bloc.dart';
 import 'package:image_processing_ai_tool/presentation/state/network_checking_bloc.dart';
 import 'package:image_processing_ai_tool/presentation/state/network_checking_event.dart';

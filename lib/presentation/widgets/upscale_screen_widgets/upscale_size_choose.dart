@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class UpscaleSizeChoose extends StatefulWidget {
-  UpscaleSizeChoose(
+  const UpscaleSizeChoose(
     this._formkey, {
     super.key,
   });

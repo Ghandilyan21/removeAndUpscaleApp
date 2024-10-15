@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                       content: SizedBox(
                           height: MediaQuery.of(context).size.width,
                           width: MediaQuery.of(context).size.width,
-                          child: CircularProgressIndicator()),
+                          child: const CircularProgressIndicator()),
                     );
                   });
             } else if (state is IsValidApiState || state is LogedState) {

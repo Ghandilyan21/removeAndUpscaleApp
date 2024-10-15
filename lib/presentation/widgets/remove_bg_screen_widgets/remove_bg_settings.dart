@@ -5,7 +5,7 @@ import '../../state/image_processing_event.dart';
 import '../../state/bg_settings_model.dart';
 
 class RemoveBgSettings extends StatefulWidget {
-  const RemoveBgSettings({Key? key}) : super(key: key);
+  const RemoveBgSettings({super.key});
 
   @override
   _RemoveBgSettingsState createState() => _RemoveBgSettingsState();
@@ -258,14 +258,14 @@ class SliderFormField extends StatelessWidget {
   final ValueChanged<double> onChanged;
 
   const SliderFormField({
-    Key? key,
+    super.key,
     required this.label,
     required this.initialValue,
     required this.min,
     required this.max,
     required this.divisions,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

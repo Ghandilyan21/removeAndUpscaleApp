@@ -1,1 +1,0 @@
- /home/artyom/Desktop/removeAndUpscaleApp/.dart_tool/flutter_build/0a93e230bb038f1837d2077dd91fe1b5/native_assets.yaml: 

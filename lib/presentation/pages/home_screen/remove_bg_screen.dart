@@ -113,8 +113,8 @@ class RemoveBgScreen extends StatelessWidget {
                               showDialog(
                                 context: context,
                                 builder: (context) {
-                                  return AlertDialog(
-                                    content: const RemoveBgSettings(),
+                                  return const AlertDialog(
+                                    content: RemoveBgSettings(),
                                   );
                                 },
                               );

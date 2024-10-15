@@ -543,7 +543,7 @@
     },
     {
       "name": "vm_service",
-      "rootUri": "file:///home/artyom/.pub-cache/hosted/pub.dev/vm_service-14.2.4",
+      "rootUri": "file:///home/artyom/.pub-cache/hosted/pub.dev/vm_service-14.2.5",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -572,10 +572,10 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-10-15T13:41:48.969738Z",
+  "generated": "2024-10-15T14:27:19.346509Z",
   "generator": "pub",
-  "generatorVersion": "3.5.0",
+  "generatorVersion": "3.5.3",
   "flutterRoot": "file:///usr/bin/flutter",
-  "flutterVersion": "3.24.0",
+  "flutterVersion": "3.24.3",
   "pubCache": "file:///home/artyom/.pub-cache"
 }

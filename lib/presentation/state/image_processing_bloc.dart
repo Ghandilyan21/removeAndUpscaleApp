@@ -11,7 +11,7 @@ import 'package:image_processing_ai_tool/presentation/state/image_view_model.dar
 
 class ImageProcessingBloc
     extends Bloc<ImageProcessingEvent, ImageProcessingState> {
-  BgSettingsModel currentSettings = BgSettingsModel();
+  BgSettingsModel currentSettings = const BgSettingsModel();
   final RemoveBgPickImageUsecase removeBgPickImageUsecase;
   late ImageViewModel imageViewModel;
   final RemoveBgUsecase removeBgUsecase;
@@ -24,7 +24,7 @@ class ImageProcessingBloc
       required this.removeBgUsecase,
       required this.removeBgPickImageUsecase,
       required this.upscaledImageSaveUsecase})
-      : super(ImageProcessingState()) {
+      : super(const ImageProcessingState()) {
     on<PickRemoveBgImage>((event, emit) async {
       emit(BgRemoveImagePicking());
 
@@ -61,7 +61,7 @@ class ImageProcessingBloc
       response.fold((failure) {
         emit(BgRemovedSavingFailure(message: failure.message));
       }, (image) {
-        emit(BgRemovedSaved(message: "Image saved!"));
+        emit(const BgRemovedSaved(message: "Image saved!"));
       });
     });
 
@@ -82,7 +82,7 @@ class ImageProcessingBloc
       response.fold((failure) {
         emit(BgRemovedSavingFailure(message: failure.message));
       }, (image) {
-        emit(BgRemovedSaved(message: "Upscaled image saved!"));
+        emit(const BgRemovedSaved(message: "Upscaled image saved!"));
       });
     });
 
